@@ -1,8 +1,9 @@
 class Solution:
     def addToArrayForm(self, num: List[int], k: int) -> List[int]: 
-        a = ""
-        for i in num:
-            a += str(i)
-        a = int(a) + k
-        a = list(str(a))
-        return a
+        for i in range(len(num) - 1, -1, -1):
+            if not k: break
+            k, num[i] = divmod(num[i] + k, 10)
+        while k:
+            k, a = divmod(k, 10)
+            num = [a] + num
+        return num
