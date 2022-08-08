@@ -5,5 +5,5 @@ class Solution:
         for i in range(len(mat)):
             s+=mat[i][i]
             if n-i-1!=i:
-                s+=mat[n-i-1][i]
+                s+=mat[i][n-i-1]
         return s    
