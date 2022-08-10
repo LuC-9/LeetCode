@@ -1,6 +1,6 @@
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        ms=-99999
+        ms=nums[0]
         cs=0
         for i in range(len(nums)):
             cs+=nums[i]
