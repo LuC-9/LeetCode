@@ -1,17 +1,14 @@
 class Solution:
     def maximumPopulation(self, logs: List[List[int]]) -> int:   
-        dates = []
-        for birth, death in logs:
-            dates.append((birth, 1))
-            dates.append((death, -1))
-            
-        dates.sort()
-
-        population = max_population = max_year = 0
-        for year, change in dates:
-            population += change
-            if population > max_population:
-                max_population = population
-                max_year = year
-        
-        return max_year
+        birth_years = sorted([i[0] for i in logs])
+        max_pop = 0
+        output = 0
+        for year in birth_years:
+            population= 0
+            for dates in logs:
+                if dates[0]<=year and dates[1]>year:
+                    population+=1
+            if population>max_pop:
+                output = year
+                max_pop = population
+        return output
