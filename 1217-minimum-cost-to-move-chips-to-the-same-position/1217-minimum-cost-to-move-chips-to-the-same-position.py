@@ -10,8 +10,4 @@ class Solution:
                 count_even += 1
             else:
                 count_odd += 1
-        # """
-        # Directly Jump to step 4 as cost of step 1- step 3 is 0
-        # """
-        return min(count_odd,count_even)
-        
+        return min(count_odd,count_even)  
