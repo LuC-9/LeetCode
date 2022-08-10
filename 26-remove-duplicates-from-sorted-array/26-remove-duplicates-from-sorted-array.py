@@ -7,8 +7,4 @@ class Solution:
             if nums[i] != nums[i-1]: 
                 nums[j] = nums[i]
                 j += 1
-     
-        for delete_index in range(i, j-1, -1):
-            del nums[delete_index]
-
         return j
