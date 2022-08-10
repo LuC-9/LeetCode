@@ -4,5 +4,5 @@ class Solution:
         while matrix:
             result += matrix.pop(0)
             matrix = (list(zip(*matrix)))[::-1]
-            print(matrix)
+            #print(matrix)
         return result
