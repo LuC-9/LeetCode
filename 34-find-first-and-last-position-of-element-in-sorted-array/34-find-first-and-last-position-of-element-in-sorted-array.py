@@ -1,34 +1,30 @@
 class Solution:
-    def searchRange(self, nums: List[int], target: int) -> List[int]:    
-        def left(nums,k):
-            s=0
-            ans=-1
-            e=len(nums)-1
-            while s<=e:
-                m=s+(e-s)//2
-                if nums[m]==k:
-                    ans=m
-                    e=m-1
-                elif nums[m]>k:
-                    e=m-1
+    def searchRange(self, nums: List[int], target: int) -> List[int]:  
+        #Essentially a modified binary search
+		#To find the first occurence of a number, scan the remaining left part
+		#To find the last occurence of a number, scan the remaining right part
+		
+        def binarySearch(find):
+            left, right = 0, len(nums) - 1
+            output = -1
+            
+            while left <= right:
+                mid = (left + right) // 2
+                
+                if nums[mid] > target:
+                    right = mid - 1
+                elif nums[mid] < target:
+                    left = mid + 1
                 else:
-                    s=m+1
-            return ans
-        def right(nums,k):
-            s=0
-            ans=-1
-            e=len(nums)-1
-            while s<=e:
-                m=s+(e-s)//2
-                if nums[m]==k:
-                    ans=m
-                    s=m+1
-                elif nums[m]>k:
-                    e=m-1
-                else:
-                    s=m+1
-            return ans
-        r=[0]*2
-        r[0]=left(nums,target)
-        r[1]=right(nums,target)
-        return r
+                    output = mid
+                    
+					#This is the only modification to a standard binary search
+                    if find == 'first': #To find the first occurence, look to the left (shrink from right)
+                        right = mid - 1
+                    elif find == 'last': #To find the last occurence, look to the right (shrink from left)
+                        left = mid + 1
+            
+            return output
+            
+        return [binarySearch('first'), binarySearch('last')]
+        
