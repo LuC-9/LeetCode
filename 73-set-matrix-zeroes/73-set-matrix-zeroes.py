@@ -7,8 +7,8 @@ class Solution:
                 continue
             for k in range (len(matrix[0])):
                 matrix[i][k]=0
-            for k2 in range (len(matrix)):
-                    matrix[k2][j]=0
+            for k in range (len(matrix)):
+                    matrix[k][j]=0
                     
         """
         Do not return anything, modify matrix in-place instead.
