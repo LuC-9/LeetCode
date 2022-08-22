@@ -13,8 +13,7 @@ class Solution:
                 elif nums[mid] < target:
                     left = mid + 1
                 else:
-                    output = mid
-                    
+                    output = mid    
 					#This is the only modification to a standard binary search
                     if find == 'first': #To find the first occurence, look to the left (shrink from right)
                         right = mid - 1
