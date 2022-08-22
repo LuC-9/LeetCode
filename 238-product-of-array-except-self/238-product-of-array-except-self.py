@@ -4,9 +4,9 @@ class Solution:
         p = 1
         for n in nums:
             res.append(p)
-            p *= n
+            p*= n
         p = 1
         for i in reversed(range(len(nums))):
-            res[i] *= p
-            p *= nums[i]    
+            res[i]*= p
+            p*= nums[i]    
         return res
