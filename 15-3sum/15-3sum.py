@@ -4,20 +4,18 @@ class Solution:
         li=set()
         array.sort()
         cur=0
-    #print(array)
-    #print(right)
         while cur < len(array)-2:
-            left=cur+1
-            right=len(array)-1 
-            while left<right:
-                if array[cur]+array[left]+array[right]==targetSum:
-                    li.add((array[cur],array[left],array[right]))
-                    left+=1
-                    right-=1
-                elif array[cur]+array[left]+array[right]<targetSum:
-                    left+=1
-                elif array[cur]+array[left]+array[right]>targetSum:
-                    right-=1
+            l=cur+1
+            r=len(array)-1 
+            while l<r:
+                if array[cur]+array[l]+array[r]==targetSum:
+                    li.add((array[cur],array[l],array[r]))
+                    l+=1
+                    r-=1
+                elif array[cur]+array[l]+array[r]<targetSum:
+                    l+=1
+                elif array[cur]+array[l]+array[r]>targetSum:
+                    r-=1
             cur+=1
-        return list(li)
+        return li
         
