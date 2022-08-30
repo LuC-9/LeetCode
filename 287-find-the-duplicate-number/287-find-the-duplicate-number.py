@@ -1,9 +1,9 @@
 class Solution:
-    def findDuplicate(self, array: List[int]) -> int:
-        seen=set()
-        for i in array:
-            if i in seen:
-                return i
-            else:
-                seen.add(i)
+    def findDuplicate(self, nums: List[int]) -> int:
+        for i in nums:
+            ab=abs(i)
+            if nums[ab-1]<0:
+                return ab
+            nums[ab-1]*=-1
         return -1
+        
