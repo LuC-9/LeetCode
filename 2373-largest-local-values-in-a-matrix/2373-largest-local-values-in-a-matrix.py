@@ -1,10 +1,9 @@
 class Solution:
     def largestLocal(self, grid: List[List[int]]) -> List[List[int]]:
-        list1=[] 
-        for i in range(len(grid)-2):
-            list2=[] 
-            for j in range(len(grid)-2):
-                list2.append(max(max(grid[i][j:j+3]),max(grid[i+1][j:j+3]),max(grid[i+2][j:j+3])))
-            list1.append(list2)     
-        return list1 
-        
+        n = len(grid)-2
+        ans = [[0]*n for _ in range(n)]
+
+        for i in range(n):
+            for j in range(n):
+                ans[i][j] = max(chain(grid[i  ][j:j+3], grid[i+1][j:j+3],grid[i+2][j:j+3]))
+        return ans
